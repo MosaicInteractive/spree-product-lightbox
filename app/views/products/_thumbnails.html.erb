@@ -12,9 +12,7 @@ $(function() {
 	<ul>
 		<% product.images.each do |i| -%>
 		<li>
-			<a href="/assets/products/<%= i.id %>/original/<%= i.attachment_file_name %>" title="<%= product.name %>">
-				<%= image_tag(i.attachment.url)%>
-			</a>
+      <%= link_to(image_tag(i.attachment.url(:mini)), i.attachment.url(:large)) %>
 		</li>
 		<% end -%>
 	</ul>
