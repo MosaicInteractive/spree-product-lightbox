@@ -1,7 +1,7 @@
 <% if !product.images.empty? %>
 <% content_for :head do -%>
-<%= javascript_include_tag 'jquery.lightbox.js' %>
-<%= stylesheet_link_tag 'lightbox.css' %>
+<%= javascript_include_tag 'nf.lightbox.js' %>
+<%= stylesheet_link_tag 'nf.lightbox.css' %>
 <% end -%>
 <script type="text/javascript">
 $(function() {
@@ -12,9 +12,10 @@ $(function() {
 	<ul>
 		<% product.images.each do |i| -%>
 		<li>
-      <%= link_to(image_tag(i.attachment.url(:mini)), i.attachment.url(:large)) %>
+    <%= link_to(image_tag(i.attachment.url(:mini)), i.attachment.url(:large), :title => product.name) %>
 		</li>
 		<% end -%>
 	</ul>
 </div>
 <% end %>
+
