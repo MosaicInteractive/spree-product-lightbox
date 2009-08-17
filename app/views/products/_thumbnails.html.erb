@@ -5,17 +5,20 @@
 <% end -%>
 <script type="text/javascript">
 $(function() {
-	$('#gallery a').lightBox();
+  $('#product-images a').lightBox();
 });
 </script>
 <div id="gallery">
-	<ul>
-		<% product.images.each do |i| -%>
-		<li>
-    <%= link_to(image_tag(i.attachment.url(:mini)), i.attachment.url(:large), :title => product.name) %>
-		</li>
-		<% end -%>
-	</ul>
+  <ul>
+    <% is_first = true
+    product.images.each do |i|
+	    if is_first
+	      is_first = false	
+	  	  next 
+      end -%>
+    <li><%= link_to_image(i.attachment, product.name) %></li>
+    <% end -%>
+  </ul>
 </div>
 <% end %>
 
