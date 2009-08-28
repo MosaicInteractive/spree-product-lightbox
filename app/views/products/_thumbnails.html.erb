@@ -1,8 +1,6 @@
 <% if !product.images.empty? %>
-<% content_for :head do -%>
 <%= javascript_include_tag 'nf.lightbox.js' %>
 <%= stylesheet_link_tag 'nf.lightbox.css' %>
-<% end -%>
 <script type="text/javascript">
 $(function() {
   $('#product-images a').lightBox();
@@ -13,8 +11,8 @@ $(function() {
     <% is_first = true
     product.images.each do |i|
 	    if is_first
-	      is_first = false	
-	  	  next 
+	      is_first = false
+	  	  next
       end -%>
     <li><%= link_to_image(i.attachment, product.name) %></li>
     <% end -%>
