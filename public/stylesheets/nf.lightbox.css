@@ -148,8 +148,8 @@
 {
 	font-weight: bold;
 	display: block;
-	height: 25px;
-	line-height: 25px;
+	/*height: 25px;
+	line-height: 25px;*/
 	vertical-align: middle;
 }
 #lightbox-image-details-currentNumber, span.delimeter
@@ -166,11 +166,16 @@
 {
 	display: inline;
 	height: 25px;
-  line-height:22px;
-  vertical-align:top;
+	line-height:22px;
+	vertical-align:top;
 	cursor: pointer;
 }
 
 div#gallery ul { list-style: none; }
 div#gallery ul li { display: inline; }
+#lightbox-container-image-box-top img { cursor: pointer; }
+span.delimeter { display: none; }
+/* IE6 hacks */
+* html #lightbox-container-image-box-top-middle { width: 70%; }
+* html #lightbox-container-image { margin-top:-30px; }
 
