@@ -20,7 +20,7 @@ $(function() {
   <% if @product.has_variants? 
     has_checked = false %>
     <ul id="variant-thumbnails" class="thumbnails">
-      <% product.variants.each do |v|
+      <% (@variants || product.variants).each do |v|
           checked = !has_checked && (v.available?)
      		  has_checked = true if checked
           
