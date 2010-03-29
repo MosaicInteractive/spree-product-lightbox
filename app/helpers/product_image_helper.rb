@@ -6,7 +6,7 @@ module ProductImageHelper
   end
   
   def link_to_image(image, title='')
-    link_to image_tag(image.url(:mini), :alt => product.name), image.url(:large), :title => title
+    link_to image_tag(image.url(:mini)), image.url(:large), :title => title
   end
 end
 
