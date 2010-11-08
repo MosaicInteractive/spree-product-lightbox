@@ -5,7 +5,11 @@ class ProductLightboxExtension < Spree::Extension
   def activate
     # admin.tabs.add "Product Lightbox", "/admin/product_lightbox", :after => "Layouts", :visibility => [:all]
     Spree::BaseController.class_eval do
-       helper ProductImageHelper
+      helper ProductImageHelper
     end
+    ProductsController.class_eval do
+      helper ProductImageHelper
+    end
+
   end
 end
