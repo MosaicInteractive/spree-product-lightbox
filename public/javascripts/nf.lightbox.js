@@ -84,10 +84,10 @@
             containerBorderSize: 10,
             containerResizeSpeed: 500,
             // Configuration related to texts in caption. For example: Image 2 of 8. You can alter either "Image" and "of" texts.
-            txtImage: 'Фотография',
-            txtOf: 'из',
-            txtPrev: '&nbsp;Предыдущая',
-            txtNext: '&nbsp;Следующая',
+            txtImage: 'Image',
+            txtOf: 'of',
+            txtPrev: 'Prev',
+            txtNext: 'Next',
             // Configuration related to keyboard navigation
             keyToClose: 'c',
             keyToPrev: 'p',
