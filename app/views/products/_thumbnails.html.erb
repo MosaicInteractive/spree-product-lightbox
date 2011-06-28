@@ -1,38 +1,28 @@
-<% if !product.images.empty? %>
-<% content_for :head do -%>
-  <script type="text/javascript" charset="utf-8">
-    var images = new Array();
-    <% @variants.each do |v| %>
-      images[<%= v.id.to_s %>] = new Array();
-      <% v.images.each_with_index do |image, i| %>
-        images[<%= v.id.to_s %>][<%= i %>] = <%= link_to(image_tag(image.attachment.url(:mini)), image.attachment.url(:product)).to_json %>;
-      <% end %>
+<!-- no need for thumnails unless there is more then one image -->
+<% if product.images.size > 1 %>
+  <ul id="product-thumbnails" class="thumbnails">
+    <% product.images[1..-1].each do |i| %>  
+      <li><%= link_to(image_tag(i.attachment.url(:mini)), i.attachment.url(:large), :rel => "prettyPhoto[pp_gal]", :rev => i.attachment.url(:product)) %></li>
     <% end %>
-    $(function() {
-      $('#product-images a').lightBox();
-    });
-  </script>
-  <%= javascript_include_tag 'nf.lightbox.js' %>
-  <%= stylesheet_link_tag 'nf.lightbox.css' %>
-<% end -%>
-
-<div id="gallery">
-  <ul>
-    <% is_first = true
-    product.images.each do |i|
-	    if is_first
-	      is_first = false
-	  	  next
-      end -%>
-    <li><%= link_to_image(i.attachment, product.name) %></li>
-    <% end -%>
   </ul>
-  <% if @product.has_variants? %>
-    <ul id="variant-thumbnails" class="thumbnails">
-      <% (@variants || product.variants).select { |v| v.available? }.collect { |v| v.images }.flatten.uniq.each do |i| %>
-          <li><%= link_to_image(i.attachment, product.name) %></li>
+<% end %>
+
+<% if @product.has_variants?
+  has_checked = false %>
+  <h4 id="variant-images">
+    <%= t('images_for') %>:
+    <span><%= @selected_variant.options_text %></span>
+  </h4>
+  <ul id="variant-thumbnails" class="thumbnails">
+    <% @variants.each do |v|
+        checked = !has_checked && (v.available?)
+   		  has_checked = true if checked
+        
+        if checked 
+          v.images.each do |i| %>  
+            <li><%= link_to(image_tag(i.attachment.url(:mini)), i.attachment.url(:large), :rel => "prettyPhoto[pp_gal]", :rev => i.attachment.url(:product)) %> %></li>
+          <% end %>
+        <% end %>
       <% end %>
     </ul>
-  <% end %>  
-</div>
 <% end %>
