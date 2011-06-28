@@ -1,7 +1,7 @@
 NOTICE
 ======
 
-This branch will no longer be following @krik's branch (as the master source from @ariossw hasn't been maintained in quite some time).  All future revisions will follow commits made to @changinglanes Spree-PrettyPhoto (as seen below).
+This fork will no longer be managed (as the master source from @ariossw hasn't been maintained in  quite some time).  We have moved to a recent extension and all updates can be found here: https:// codenamev@github.com/mosaic/Spree-PrettyPhoto.git
 
 For 0-11-stable versions, see the 0-11-stable branch
 
